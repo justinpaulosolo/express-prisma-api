@@ -2,10 +2,31 @@ import { User } from "@prisma/client";
 import prisma from "../utils/prisma";
 
 export const createUser = async (user: User) => {
+  console.log(user);
   return await prisma.user.create({
     data: user,
     select: {
       id: true,
+    },
+  });
+};
+
+export const updateUser = async (user: User) => {
+  return await prisma.user.update({
+    where: {
+      id: user.id,
+    },
+    data: user,
+    select: {
+      id: true,
+    },
+  });
+};
+
+export const deleteUser = async (id: number) => {
+  return await prisma.user.delete({
+    where: {
+      id,
     },
   });
 };

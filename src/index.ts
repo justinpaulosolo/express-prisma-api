@@ -1,4 +1,5 @@
 import express, { NextFunction, Request, Response } from "express";
+import bodyParser from "body-parser";
 import HttpException from "./models/http-exception.model";
 import routes from "./routes/routes";
 
@@ -16,6 +17,7 @@ const app = express();
  * in the routes folder.
  **/
 
+app.use(bodyParser.json());
 app.use(routes);
 
 app.use(
