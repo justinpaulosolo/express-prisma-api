@@ -2,27 +2,11 @@ import { NextFunction, Router, Request, Response } from "express";
 import {
   getAllUsers,
   getUserById,
-  createUser,
   deleteUser,
   updateUser,
-} from "../services/users";
+} from "../services/user.service";
 
 const router = Router();
-
-/**
- * Create a new user
- * @route {POST} /user
- * @bodyparam user User
- * @returns user.id
- */
-router.post("/", async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const user = await createUser(req.body);
-    res.json(user);
-  } catch (error) {
-    next(error);
-  }
-});
 
 /**
  * Update a new user
