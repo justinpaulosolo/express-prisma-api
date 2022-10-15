@@ -7,6 +7,6 @@
 
 ### Todo:
 
-- [ ] Set up prisma
+- [x] Set up prisma
 - [ ] User crud
 - [ ] Authentication ( JWT / Session)
